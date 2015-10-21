@@ -11,7 +11,8 @@
        http://www.springframework.org/schema/aop
        http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/context
-       http://www.springframework.org/schema/context/spring-context.xsd">
+       http://www.springframework.org/schema/context/spring-context.xsd"
+        default-lazy-init="true">
 
     <!--扫描Controller注入-->
     <!--<context:component-scan base-package="com.pnlorf.controller"></context:component-scan>-->
@@ -31,7 +32,7 @@
         <property name="basenames">
             <list>
                 <!--在web环境中一定要定位到classpath，否则默认到当前web应用下找-->
-                <value>classpath:messages</value>
+                <value>classpath:messages.properties</value>
                 <value>classpath:org/hibernate/validator/ValidationMessages</value>
             </list>
         </property>
@@ -52,21 +53,49 @@
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
         <property name="messageConverters">
             <list>
-                <ref bean="mappingJacksonHttpMessageConverter"/>
+                <ref bean="mappingJackson2HttpMessageConverter"/>
             </list>
         </property>
     </bean>
 
-    <bean id="mappingJacksonHttpMessageConverter"
+    <!--避免IE执行AJAX时，返回JSON出现下载文件 -->
+    <bean id="mappingJackson2HttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="supportedMediaTypes">
             <list>
                 <value>text/plain;charset=utf-8</value>
+                <value>text/json;charset=utf-8</value>
                 <value>application/json;charset=UTF-8</value>
             </list>
         </property>
     </bean>
-    <!--支持返回json-->
+
+    <!--采用SpringMVC自带的JSON转换工具，支持@ResponseBody注解-->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+        <property name="messageConverters">
+            <list>
+                <!--JSON转换器-->
+                <ref bean="mappingJackson2HttpMessageConverter"/>
+            </list>
+        </property>
+    </bean>
+
+    <mvc:annotation-driven>
+        <!--处理@ResponseBody里面日期类型-->
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper">
+                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">
+                        <property name="dateFormat">
+                            <bean class="java.text.SimpleDateFormat">
+                                <constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss"/>
+                            </bean>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
 
     <!--即插即用的MultipartResolver，使用springmvc提供的上传-->
@@ -79,7 +108,7 @@
         <property name="defaultEncoding" value="utf-8"/>
     </bean>
 
-    <!--对模型视图添加前后缀，配置jsp视图解析-->
+    <!--对模型视图添加前后缀，配置jsp视图解析，即在模型视图名称添加前后缀-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/"/>
         <property name="suffix" value=".jsp"/>

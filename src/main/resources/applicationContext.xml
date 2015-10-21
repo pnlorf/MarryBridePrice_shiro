@@ -7,6 +7,7 @@
        xmlns:aop="http://www.springframework.org/schema/aop"
        xmlns:cache="http://www.springframework.org/schema/cache"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:task="http://www.springframework.org/schema/task"
        xsi:schemaLocation="
        http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
@@ -20,7 +21,18 @@
        http://www.springframework.org/schema/cache/spring-cache.xsd
        http://www.springframework.org/schema/mvc
        http://www.springframework.org/schema/mvc/spring-mvc.xsd
-       ">
+       http://www.springframework.org/schema/task
+       http://www.springframework.org/schema/task/spring-task.xsd"
+       default-lazy-init="true">
+    <!--定时器开关开始-->
+    <task:annotation-driven/>
+
+    <!-- 标注类型 的事务配置 如果使用注解事务。就放开
+    <tx:annotation-driven />-->
+
+    <!-- 统一异常处理方式 -->
+    <bean id="exceptionHandler" class="com.pnlorf.exception.PnlorfExceptionHandler"/>
+
     <!--自动扫描包，将带有注解的类纳入spring容器管理-->
     <context:component-scan base-package="com.pnlorf"></context:component-scan>
 
@@ -108,15 +120,16 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!--Cache配置-->
-    <cache:annotation-driven cache-manager="cacheManager"/>
+<!--    <cache:annotation-driven cache-manager="cacheManager"/>
 
     <bean id="ehCacheManagerFactory" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-        <property name="configLocation" value="classpath*:ehcache.xml"/>
+        <property name="configLocation" value="classpath:ehcache.xml"/>
     </bean>
 
     <bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheCacheManager">
         <property name="cacheManager" ref="ehCacheManagerFactory"/>
-    </bean>
+    </bean>-->
 
-
+    <!--隐式地向Spring容器注册-->
+    <context:annotation-config/>
 </beans>
