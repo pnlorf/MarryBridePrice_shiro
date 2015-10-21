@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<!-- 配置Run As Maven build : Goals 参数 : mybatis-generator:generate -Dmybatis.generator.overwrite=true -->
+<!-- 配置 tableName,使用 Run As Maven build 生成 dao model 层 -->
+<generatorConfiguration>
+    <!-- 配置文件路径，其中包括数据库mysql驱动包，url，username，password，包名等 -->
+    <properties url="${mybatis.generator.generatorConfig.properties}"/>
+
+    <!--数据库驱动包路径 -->
+    <classPathEntry location="${drive.class.path}"/>
+
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!--关闭注释，为了防止生成的代码中有很多注释，比较难看，加入如下配置控制-->
+        <commentGenerator>
+            <!--这个属性用来指定MBG生成的代码中是否包含任何注释-->
+            <property name="suppressAllComments" value="true"/>
+            <!--这个元素用来指定生成的注释中是否包含生成的日期。-->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <!--数据库连接信息 -->
+        <jdbcConnection driverClass="${jdbc.driver}" connectionURL="${jdbc.url}" userId="${jdbc.username}"
+                        password="${jdbc.password}"></jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--生成的实体entity 包路径 -->
+        <javaModelGenerator targetPackage="${entity.package}" targetProject="${target.project}">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!--生成xml mapper文件 路径 -->
+        <sqlMapGenerator targetPackage="${xml.mapper.package}" targetProject="${target.project}">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 生成的mapper接口包 路径 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="${dao.package}" targetProject="${target.project}">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--对应数据库表名 -->
+        <table tableName="server_info" schema="mybatis" domainObjectName="ServerInfo"
+                enableCountByExample="false" enableUpdateByExample="false"
+                enableDeleteByExample="false" enableSelectByExample="false"
+                selectByExampleQueryId="false"></table>
+    </context>
+</generatorConfiguration>
