@@ -70,6 +70,7 @@ public class PropertiesUtils {
         // InputStream in= PropertiesUtils.class.getResourceAsStream("/jdbc.properties");
         try {
             InputStream in = new BufferedInputStream(new FileInputStream(savePath));
+            properties.load(in);
         } catch (Exception e) {
             logger.debug("get jdbc properties exception.", e);
             logger.warn("get jdbc properties exception.", e.getMessage());

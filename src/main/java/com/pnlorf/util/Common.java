@@ -1,5 +1,6 @@
 package com.pnlorf.util;
 
+import com.pnlorf.annotation.TableSeg;
 import org.apache.commons.lang.StringUtils;
 
 /**
@@ -23,5 +24,25 @@ public class Common {
         } else {
             return "";
         }
+    }
+
+    public static FormMap<String, Object> toHashMap(Object parameterObject) {
+        FormMap<String, Object> froMmap = (FormMap<String, Object>) parameterObject;
+        try {
+            String name = parameterObject.getClass().getName();
+            Class<?> clazz = Class.forName(name);
+            boolean flag = clazz.isAnnotationPresent(TableSeg.class); // 某个类是不是存在TableSeg注解
+            if (flag) {
+                TableSeg table = (TableSeg) clazz.getAnnotation(TableSeg.class);
+                // logger.info(" 公共方法被调用,传入参数 ==>> " + froMmap);
+                froMmap.put("ly_table", table.tableName());
+            } else {
+                throw new NullPointerException("在" + name + " 没有找到数据库表对应该的注解!");
+            }
+            return froMmap;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return froMmap;
     }
 }

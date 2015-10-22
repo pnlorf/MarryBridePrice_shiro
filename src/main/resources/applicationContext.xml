@@ -74,11 +74,25 @@
         <!--<property name="filters" value="stat"/>-->
     </bean>
 
+    <bean id="pagePlugin" class="com.pnlorf.plugin.PagePlugin">
+        <property name="properties">
+            <props>
+                <prop key="dialect">mysql</prop>
+                <prop key="pageSqlId">*query.*</prop>
+            </props>
+        </property>
+    </bean>
+
     <!--Mybatis文件配置，扫描所有mapper文件-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <property name="mapperLocations" value="classpath*:com/pnlorf/mapper/*.xml"/>
+        <property name="plugins">
+            <array>
+                <ref bean="pagePlugin"/>
+            </array>
+        </property>
     </bean>
 
     <!--spring与mybatis整合配置，扫描所有mapper-->

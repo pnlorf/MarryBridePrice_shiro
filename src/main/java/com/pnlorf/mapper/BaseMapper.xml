@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pnlorf.mapper.BaseMapper">
+    <!--mybatis ehcache缓存配置 -->
+    <!-- 以下两个<cache>标签二选一,第一个可以输出日志,第二个不输出日志 <cache type="org.mybatis.caches.ehcache.LoggingEhcache"
+        /> -->
+    <!-- <cache type="org.mybatis.caches.ehcache.EhcacheCache"/> -->
+
+    <!--以下如实体类中的字段一直-->
+    <select id="findByWhere" resultType="java.util.HashMap">
+        SELECT * from table
+    </select>
+
+    <select id="findByAll" resultType="java.util.HashMap">
+        SELECT * from table
+    </select>
+
+    <select id="findByPage" resultType="java.util.HashMap">
+        SELECT * FROM table
+    </select>
+
+    <insert id="addEntity" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO (fields) VALUES (values)
+    </insert>
+
+    <insert id="batchSave">
+        INSERT INTO (fields) VALUES (values), (values), (values)
+    </insert>
+
+    <update id="editEntity">
+        UPDATE table set (${fields}) WHERE id = (${id})
+    </update>
+
+    <!--这里的id可以是userid或者其他-->
+    <delete id="deleteByNames">
+        DELETE FROM table where id in (${ids})
+    </delete>
+
+    <select id="findByNames" resultType="java.util.HashMap">
+        SELECT * FROM table where id in ()
+    </select>
+
+    <select id="findByAttribute" resultType="java.util.HashMap">
+        SELECT * FROM table wehre id in ()
+    </select>
+
+    <delete id="deleteByAttribute">
+        delete from table where id in ()
+    </delete>
+
+    <select id="findByFirst" resultType="java.util.HashMap">
+        SELECT * from table where id = ()
+    </select>
+</mapper>
