@@ -27,14 +27,18 @@
     <!--定时器开关开始-->
     <task:annotation-driven/>
 
+    <mvc:annotation-driven />
+
+    <context:annotation-config/>
+
+    <!--自动扫描包，将带有注解的类纳入spring容器管理-->
+    <context:component-scan base-package="com.pnlorf"></context:component-scan>
+
     <!-- 标注类型 的事务配置 如果使用注解事务。就放开
     <tx:annotation-driven />-->
 
     <!-- 统一异常处理方式 -->
     <bean id="exceptionHandler" class="com.pnlorf.exception.PnlorfExceptionHandler"/>
-
-    <!--自动扫描包，将带有注解的类纳入spring容器管理-->
-    <context:component-scan base-package="com.pnlorf"></context:component-scan>
 
     <!--引入配置文件-->
     <context:property-placeholder location="classpath*:jdbc.properties"></context:property-placeholder>
@@ -51,6 +55,7 @@
         <property name="initialSize" value="${jdbc.initialSize}"/>
         <property name="minIdle" value="${jdbc.minIdle}"/>
         <property name="maxActive" value="${jdbc.maxActive}"/>
+        <property name="maxIdle" value="${jdbc.maxIdle}" />
 
         <!--配置获取连接等待超时的时间-->
         <property name="maxWait" value="${jdbc.maxWait}"/>
@@ -78,7 +83,7 @@
         <property name="properties">
             <props>
                 <prop key="dialect">mysql</prop>
-                <prop key="pageSqlId">*query.*</prop>
+                <prop key="pageSqlId">*query*</prop>
             </props>
         </property>
     </bean>

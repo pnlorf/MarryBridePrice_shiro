@@ -14,7 +14,7 @@
 						var nav = $(this).attr("nav-n");
 						var sn = nav.split(",");
 						var html = '<li><i class="fa fa-home"></i>';
-						html+='<a href="index.shtml">Home</a></li>';
+						html+='<a href="index">Home</a></li>';
 						for(var i=0;i<2;i++){
 							html+='<li><a href="javascript:void(0)">'+sn[i]+'</a></li>';
 						}
@@ -34,7 +34,7 @@
 				<a class="btn btn-link visible-xs"
 					data-toggle="class:nav-off-screen,open" data-target="#nav,html">
 					<i class="fa fa-bars"></i>
-				</a> <a href="index.shtml#" class="navbar-brand"
+				</a> <a href="index#" class="navbar-brand"
 					data-toggle="fullscreen"><img
 					src="${ctx}/notebook/notebook_files/logo.png" class="m-r-sm">Notebook</a>
 				<a class="btn btn-link visible-xs" data-toggle="dropdown"
@@ -42,21 +42,21 @@
 				</a>
 			</div>
 			<ul class="nav navbar-nav hidden-xs">
-				<li class="dropdown"><a href="index.html#"
+				<li class="dropdown"><a href="index#"
 					class="dropdown-toggle dker" data-toggle="dropdown"> <i
 						class="fa fa-building-o"></i> <span class="font-bold">Activity</span>
 				</a>
 					<section
 						class="dropdown-menu aside-xl on animated fadeInLeft no-borders lt">
 						<div class="wrapper lter m-t-n-xs">
-							<a href="index.html#" class="thumb pull-left m-r"> <img
+							<a href="index#" class="thumb pull-left m-r"> <img
 								src="${ctx}/notebook/notebook_files/avatar.jpg"
 								class="img-circle">
 							</a>
 							<div class="clear">
-								<a href="index.html#"><span class="text-white font-bold">@Mike
+								<a href="index#"><span class="text-white font-bold">@Mike
 										Mcalidek</span></a> <small class="block">Art Director</small> <a
-									href="index.html#" class="btn btn-xs btn-success m-t-xs">Upgrade</a>
+									href="index#" class="btn btn-xs btn-success m-t-xs">Upgrade</a>
 							</div>
 						</div>
 						<div class="row m-l-none m-r-none m-b-n-xs text-center">
@@ -89,7 +89,7 @@
 				</li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
-				<li class="hidden-xs"><a href="index.html#"
+				<li class="hidden-xs"><a href="index#"
 					class="dropdown-toggle dk" data-toggle="dropdown"> <i
 						class="fa fa-bell"></i> <span
 						class="badge badge-sm up bg-danger m-l-n-sm count"
@@ -103,13 +103,13 @@
 								</strong>
 							</header>
 							<div class="list-group list-group-alt animated fadeInRight">
-								<a href="index.html#" class="media list-group-item"
+								<a href="index#" class="media list-group-item"
 									style="display: block;"><span
 									class="pull-left thumb-sm text-center"><i
 										class="fa fa-envelope-o fa-2x text-success"></i></span><span
 									class="media-body block m-b-none">Sophi sent you a email<br>
 										<small class="text-muted">1 minutes ago</small></span></a> <a
-									href="index.html#" class="media list-group-item"> <span
+									href="index#" class="media list-group-item"> <span
 									class="pull-left thumb-sm"> <img
 										src="${ctx}/notebook/notebook_files/avatar.jpg"
 										alt="John said" class="img-circle">
@@ -117,14 +117,14 @@
 										animate.css<br> <small class="text-muted">10
 											minutes ago</small>
 								</span>
-								</a> <a href="index.html#" class="media list-group-item"> <span
+								</a> <a href="index#" class="media list-group-item"> <span
 									class="media-body block m-b-none"> 1.0 initial released<br>
 										<small class="text-muted">1 hour ago</small>
 								</span>
 								</a>
 							</div>
 							<footer class="panel-footer text-sm">
-								<a href="index.html#" class="pull-right"><i
+								<a href="index#" class="pull-right"><i
 									class="fa fa-cog"></i></a> <a href="index.html#notes"
 									data-toggle="class:show animated fadeInRight">See all the
 									notifications</a>
@@ -158,14 +158,14 @@
 				</a>
 					<ul class="dropdown-menu animated fadeInRight">
 						<span class="arrow top"></span>
-						<li><a href="index.shtml#">Settings</a></li>
+						<li><a href="index#">Settings</a></li>
 						<li><a href="profile.html">Profile</a></li>
 						<li><a href="index.html#"> <span
 								class="badge bg-danger pull-right">3</span> Notifications
 						</a></li>
 						<li><a href="docs.html">Help</a></li>
 						<li class="divider"></li>
-						<li><a href="logout.shtml">Logout</a></li>
+						<li><a href="logout">Logout</a></li>
 					</ul></li>
 			</ul>
 		</header>

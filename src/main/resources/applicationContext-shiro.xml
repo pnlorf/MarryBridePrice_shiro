@@ -72,6 +72,14 @@
         <property name="filterChainDefinitions">
             <value>
                 /error/** = anon
+                /admin_files/** = anon
+                /fonts/** = anon
+                /error.jsp = anon
+                /js/** = anon
+                /layer-v1.9.2/** = anon
+                /login = anon
+                /denied.jsp = anon
+                /install = anon
             </value>
         </property>
     </bean>

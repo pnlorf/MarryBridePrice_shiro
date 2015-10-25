@@ -21,7 +21,7 @@ $(function() {
 			colkey : "loginIP",
 			name : "登入IP"
 		}],
-		jsonUrl : rootPath + '/userlogin/findByPage.shtml',
+		jsonUrl : rootPath + '/userlogin/findByPage',
 		checkbox : true
 	});
 	$("#searchForm").click("click", function() {// 绑定查询按扭

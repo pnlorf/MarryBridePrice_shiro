@@ -4,7 +4,7 @@
 		<div class="alert alert-warning alert-block">
 		<table>
 		<tr>
-		<td align="center" colspan="2"><h1>蓝缘开源系统</h1></td>
+		<td align="center" colspan="2"><h1>冰诺莫语管理系统系统</h1></td>
 		</tr>
 		<tr>
 		<td><div class="topBtn" style="font-size: 15px;">

@@ -15,7 +15,7 @@
         default-lazy-init="true">
 
     <!--扫描Controller注入-->
-    <!--<context:component-scan base-package="com.pnlorf.controller"></context:component-scan>-->
+    <context:component-scan base-package="com.pnlorf.controller"></context:component-scan>
 
     <!-- 会自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 两个bean,是spring MVC为@Controllers分发请求所必须的 -->
     <mvc:annotation-driven validator="validator"/>
