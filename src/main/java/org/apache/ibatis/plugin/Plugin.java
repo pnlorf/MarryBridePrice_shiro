@@ -118,12 +118,12 @@ public class Plugin implements InvocationHandler {
 			BoundSql boundSql, Map<String, Object> formMap, List<Object> formMaps) throws Exception {
 		Object table = null;
 		String sql = "";
-		Map<String, Object> mapfield=null;
+		Map<String, Object> mapField=null;
 		String field = null;
 		if (null != formMap) {
-			table = formMap.get("ly_table");
-			mapfield=(Map<String, Object>) EhcacheUtils.get(table);
-			field = mapfield.get("field").toString();
+			table = formMap.get(Configuration.WOLF_TABLE);
+			mapField=(Map<String, Object>) EhcacheUtils.get(table);
+			field = mapField.get("field").toString();
 			sql = " select "+field+" from " + String.valueOf(table);
 		}
 		String sqlId = mappedStatement.getId();
@@ -169,7 +169,7 @@ public class Plugin implements InvocationHandler {
 			sql = "delete from " + table.toString() + " where ";
 			String param = "";
 			for (Entry<String, Object> entry : formMap.entrySet()) {
-				if (!"ly_table".equals(entry.getKey()) && null != entry.getValue()
+				if (!Configuration.WOLF_TABLE.equals(entry.getKey()) && null != entry.getValue()
 						&& !"_t".equals(entry.getKey()))
 					param += " and " + entry.getKey() + " in (" + entry.getValue() + ")";
 			}
@@ -235,7 +235,7 @@ public class Plugin implements InvocationHandler {
 			for (String string : fe) {
 				Object v = formMap.get(string);
 				if (null != v && !StringUtils.isBlank(v.toString())) {
-					String key = mapfield.get(Configuration.COLUMN_KEY).toString();
+					String key = mapField.get(Configuration.COLUMN_KEY).toString();
 					if (!StringUtils.isBlank(key)) {
 						if (key.equals(string)) {
 							where = "WHERE " + key + " = '" + v + "'";
@@ -263,9 +263,9 @@ public class Plugin implements InvocationHandler {
 
 		} else if (Configuration.BATCHSAVE.equals(sqlId)) {
 			if (null != formMaps && formMaps.size() > 0) {
-				table = Common.toHashMap(formMaps.get(0)).get(Configuration.LY_TABLE);
-				mapfield = (Map<String, Object>) EhcacheUtils.get(table);
-				field = mapfield.get(Configuration.FIELD).toString();
+				table = Common.toHashMap(formMaps.get(0)).get(Configuration.WOLF_TABLE);
+				mapField = (Map<String, Object>) EhcacheUtils.get(table);
+				field = mapField.get(Configuration.FIELD).toString();
 			}
 			sql = "insert into " + table.toString();
 			String fieldString = "";

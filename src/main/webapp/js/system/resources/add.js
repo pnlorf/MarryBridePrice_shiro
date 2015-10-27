@@ -24,7 +24,7 @@ $(function() {
 				required : true,
 				remote : { // 异步验证是否存在
 					type : "POST",
-					url : rootPath + '/resources/isExist.shtml',
+					url : rootPath + '/resources/isExist',
 					data : {
 						name : function() {
 							return $("#name").val();
@@ -36,7 +36,7 @@ $(function() {
 				required : true,
 				remote : { // 异步验证是否存在
 					type : "POST",
-					url : rootPath + '/resources/isExist.shtml',
+					url : rootPath + '/resources/isExist',
 					data : {
 						resKey : function() {
 							return $("#resKey").val();
@@ -70,7 +70,7 @@ $(function() {
 			$(".l_err").css('display', 'none');
 		}
 	});
-	var url = rootPath + '/resources/reslists.shtml';
+	var url = rootPath + '/resources/reslists';
 	var data = CommnUtil.ajax(url, null,"json");
 	if (data != null) {
 		var h = "<option value='0'>------顶级目录------</option>";
@@ -94,7 +94,7 @@ function toBut(b){
 }
 function showBut(){
 	$("#divbut").css("display","block");
-	var url = rootPath + '/resources/findByButtom.shtml';
+	var url = rootPath + '/resources/findByButtom';
 	var data = CommnUtil.ajax(url, null,"json");
 	if (data != null) {
 		var bb = $("#but");

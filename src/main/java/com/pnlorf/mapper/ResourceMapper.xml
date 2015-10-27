@@ -58,6 +58,7 @@
         select resId from res_user
         where userId=#{userId})
     </select>
+
     <update id="updateSortOrder" parameterType="java.util.List">
         <foreach collection="list" item="item" index="index" open="" close="" separator=";">
             update resources
@@ -67,6 +68,7 @@
             where id = #{item.id}
         </foreach>
     </update>
+
     <!-- 删 -->
     <delete id="deleteResourcesRole" parameterType="String">
         delete from

@@ -34,7 +34,7 @@ $(function() {
 				return "测试渲染函数";
 			}
 		} ],
-		jsonUrl : rootPath + '/user/findByPage.shtml',
+		jsonUrl : rootPath + '/user/findByPage',
 		checkbox : true,
 		serNumber : true
 	});
@@ -67,7 +67,7 @@ function editAccount() {
 		title : "编辑",
 		type : 2,
 		area : [ "600px", "80%" ],
-		content : rootPath + '/user/editUI.shtml?id=' + cbox
+		content : rootPath + '/user/editUI?id=' + cbox
 	});
 }
 function addAccount() {
@@ -75,7 +75,7 @@ function addAccount() {
 		title : "新增",
 		type : 2,
 		area : [ "600px", "80%" ],
-		content : rootPath + '/user/addUI.shtml'
+		content : rootPath + '/user/addUI'
 	});
 }
 function delAccount() {
@@ -85,7 +85,7 @@ function delAccount() {
 		return;
 	}
 	layer.confirm('是否删除？', function(index) {
-		var url = rootPath + '/user/deleteEntity.shtml';
+		var url = rootPath + '/user/deleteEntity';
 		var s = CommnUtil.ajax(url, {
 			ids : cbox.join(",")
 		}, "json");
@@ -103,7 +103,7 @@ function permissions() {
 		layer.msg("请选择一个对象！");
 		return;
 	}
-	var url = rootPath + '/resources/permissions.shtml?userId='+cbox;
+	var url = rootPath + '/resources/permissions?userId='+cbox;
 	pageii = layer.open({
 		title : "分配权限",
 		type : 2,

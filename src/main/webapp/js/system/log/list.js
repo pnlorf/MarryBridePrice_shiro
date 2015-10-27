@@ -33,7 +33,7 @@ $(function() {
 					colkey : "description",
 					name : "执行描述"
 				}],
-				jsonUrl : rootPath + '/log/findByPage.shtml',
+				jsonUrl : rootPath + '/log/findByPage',
 				checkbox : false
 			});
 	$("#searchForm").click("click", function() {//绑定查询按扭

@@ -36,7 +36,7 @@ $(function() {
 			width : "100px",
 			name : "描述"
 		} ],
-		jsonUrl : rootPath + '/resources/treelists.shtml',
+		jsonUrl : rootPath + '/resources/treelists',
 		checkbox : true,
 		usePage : false,
 		records : "treelists",
@@ -64,11 +64,11 @@ $(function() {
 		delFun();
 	});
 	$("#lyGridUp").click("click", function() {// 上移
-		var jsonUrl=rootPath + '/background/resources/sortUpdate.shtml';
+		var jsonUrl=rootPath + '/background/resources/sortUpdate';
 		grid.lyGridUp(jsonUrl);
 	});
 	$("#lyGridDown").click("click", function() {// 下移
-		var jsonUrl=rootPath + '/background/resources/sortUpdate.shtml';
+		var jsonUrl=rootPath + '/background/resources/sortUpdate';
 		grid.lyGridDown(jsonUrl);
 	});
 });
@@ -82,7 +82,7 @@ function editFun() {
 		title : "编辑",
 		type : 2,
 		area : [ "600px", "80%" ],
-		content : rootPath + '/resources/editUI.shtml?id=' + cbox
+		content : rootPath + '/resources/editUI?id=' + cbox
 	});
 }
 function addFun() {
@@ -90,7 +90,7 @@ function addFun() {
 		title : "新增",
 		type : 2,
 		area : [ "600px", "80%" ],
-		content : rootPath + '/resources/addUI.shtml'
+		content : rootPath + '/resources/addUI'
 	});
 }
 function delFun() {
@@ -100,7 +100,7 @@ function delFun() {
 		return;
 	}
 	layer.confirm('是否删除？', function(index) {
-		var url = rootPath + '/resources/deleteEntity.shtml';
+		var url = rootPath + '/resources/deleteEntity';
 		var s = CommnUtil.ajax(url, {
 			ids : cbox.join(",")
 		}, "json");

@@ -150,7 +150,7 @@ public class Configuration {
 
 	public static final String FIELD = "field";
 
-	public static final String LY_TABLE = "ly_table";
+	public static final String WOLF_TABLE = "wolf_table";
 
 	public static final String FINDBYWHERE = "findByWhere";
 

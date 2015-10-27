@@ -1,6 +1,7 @@
 package com.pnlorf.plugin;
 
 import com.pnlorf.annotation.TableSeg;
+import com.pnlorf.util.Constant;
 import com.pnlorf.util.FormMap;
 import org.apache.ibatis.executor.statement.BaseStatementHandler;
 import org.apache.ibatis.executor.statement.RoutingStatementHandler;
@@ -362,7 +363,7 @@ public class PagePlugin implements Interceptor {
             if (flag) {
                 TableSeg table = (TableSeg) clazz.getAnnotation(TableSeg.class);
                 logger.info(" 公共方法被调用,传入参数 ==>> " + froMmap);
-                froMmap.put("ly_table", table.tableName());
+                froMmap.put(Constant.WOLF_TABLE, table.tableName());
             } else {
                 throw new NullPointerException("在" + name + " 没有找到数据库表对应该的注解!");
             }

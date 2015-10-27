@@ -22,7 +22,7 @@ $(function() {
 			colkey : "description",
 			name : "描述"
 		} ],
-		jsonUrl : rootPath + '/role/findByPage.shtml',
+		jsonUrl : rootPath + '/role/findByPage',
 		checkbox : true
 	});
 	$("#search").click("click", function() {// 绑定查询按扭
@@ -54,7 +54,7 @@ function editRole() {
 		title : "编辑",
 		type : 2,
 		area : [ "600px", "60%" ],
-		content : rootPath + '/role/editUI.shtml?id=' + cbox
+		content : rootPath + '/role/editUI?id=' + cbox
 	});
 }
 function permissions() {
@@ -63,7 +63,7 @@ function permissions() {
 		layer.msg("请选择一个对象！");
 		return;
 	}
-	var url = rootPath + '/resources/permissions.shtml?roleId='+cbox;
+	var url = rootPath + '/resources/permissions?roleId='+cbox;
 	pageii = layer.open({
 		title : "分配权限",
 		type : 2,
@@ -76,7 +76,7 @@ function addRole() {
 		title : "新增",
 		type : 2,
 		area : [ "600px", "60%" ],
-		content : rootPath + '/role/addUI.shtml'
+		content : rootPath + '/role/addUI'
 	});
 }
 function delRole() {
@@ -86,7 +86,7 @@ function delRole() {
 		return;
 	}
 	layer.confirm('是否删除？', function(index) {
-		var url = rootPath + '/role/deleteEntity.shtml';
+		var url = rootPath + '/role/deleteEntity';
 		var s = CommnUtil.ajax(url, {
 			ids : cbox.join(",")
 		}, "json");

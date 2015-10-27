@@ -28,7 +28,7 @@ $(function() {
 				required : true,
 				remote : { // 异步验证是否存在
 					type : "POST",
-					url : 'isExist.shtml',
+					url : 'isExist',
 					data : {
 						name : function() {
 							return $("#accountName").val();
