@@ -9,6 +9,9 @@ import org.apache.ibatis.type.DoubleTypeHandler;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Field;
 import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Map;
 
 /**
@@ -180,5 +183,14 @@ public class Common {
         return b1.divide(b2, defDivScale, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
 
+    /**
+     * 返回当前时间格式：yyyy-MM-dd hh:mm:ss
+     *
+     * @return String
+     */
+    public static String fromDateH() {
+        DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+        return format1.format(new Date());
+    }
 
 }

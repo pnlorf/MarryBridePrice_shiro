@@ -36,6 +36,7 @@
         <shiro.version>1.2.4</shiro.version>
         <hibernate.validator.version>5.2.2.Final</hibernate.validator.version>
         <commons-collections.version>3.2.1</commons-collections.version>
+        <mail.version>1.4.7</mail.version>
 
         <!--plugin setting-->
         <mybatis.generator.generatorConfig.xml>${basedir}/src/test/resources/generatorConfig.xml</mybatis.generator.generatorConfig.xml>
@@ -351,6 +352,13 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
             <version>${hibernate.validator.version}</version>
+        </dependency>
+
+        <!--mail-->
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>${mail.version}</version>
         </dependency>
 
     </dependencies>
