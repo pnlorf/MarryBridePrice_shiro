@@ -23,17 +23,17 @@
     </sql>
     <select id="findChildLists" resultType="com.pnlorf.entity.ResFormMap">
         SELECT
-        <include refid="selectId" />
+        <include refid="selectId"/>
         from resources
         where parentId = #{id}
     </select>
     <!-- 获取该用户的权限 -->
     <select id="findRes" parameterType="String" resultType="com.pnlorf.entity.ResFormMap">
         SELECT
-        <include refid="selectId" />
+        <include refid="selectId"/>
         from resources where id in(
         select resId from
-        res_user where 1=1
+        user_res where 1=1
         <if test="userId != null and userId != '' and userId != 0">
             and userId = #{userId}
         </if>
@@ -53,9 +53,9 @@
     <select id="findUserResources" parameterType="String"
             resultType="com.pnlorf.entity.ResFormMap">
         SELECT
-        <include refid="selectId" />
+        <include refid="selectId"/>
         from resources where id in(
-        select resId from res_user
+        select resId from user_res
         where userId=#{userId})
     </select>
 
@@ -79,5 +79,18 @@
     <insert id="addRoleRes">
         insert into res_roles (role_id,resc_id) value (#{roleId},#{resId})
     </insert>
+
+    <select id="findRoleResources" parameterType="String" resultType="com.pnlorf.entity.ResFormMap">
+      SELECT
+        resource.*
+      FROM
+        resources resource,
+        role_res role_resour,
+        role roles
+      WHERE
+        resource.id = role_resour.resId
+      AND role_resour.roleId = roles.id
+      AND role_resour.roleId = #{roleId}
+    </select>
 
 </mapper>

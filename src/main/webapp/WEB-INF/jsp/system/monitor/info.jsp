@@ -52,7 +52,7 @@
 							<tr>
 								<td style='padding-left: 10px; text-align: left;vertical-align: middle;'>CPU</td>
 								<td style='padding-left: 10px; text-align: left;vertical-align: middle;'>当前使用率：<span
-									id="td_cpuUsage" style="color: red;">${cpu}</span> %
+									id="td_cpuUsage" style="color: red;">50</span> %
 								</td>
 								<td align="center">
 									<table>
@@ -76,7 +76,7 @@
 							<tr>
 								<td style='padding-left: 10px; text-align: left;vertical-align: middle;'>服务器内存</td>
 								<td style='padding-left: 10px; text-align: left;vertical-align: middle;'>当前使用率：<span
-									id="td_serverUsage" style="color: blue;">${ram}</span> %
+									id="td_serverUsage" style="color: blue;">50</span> %
 								</td>
 								<td align="center">
 									<table>
@@ -95,7 +95,7 @@
 							<tr>
 								<td style='padding-left: 10px; text-align: left;vertical-align: middle;'>JVM内存</td>
 								<td style='padding-left: 10px; text-align: left;vertical-align: middle;'>当前使用率：<span
-									id="td_jvmUsage" style="color: green;">${jvm}</span> %
+									id="td_jvmUsage" style="color: green;">50</span> %
 								</td>
 								<td align="center">
 									<table>

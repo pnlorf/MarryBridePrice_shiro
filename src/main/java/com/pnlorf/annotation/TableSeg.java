@@ -11,7 +11,7 @@ import java.lang.annotation.*;
  * <p>
  * id = "表的主键" (如果是多个主键，默认是第一个)
  * <p>
- * Created by 恒安 on 2015/10/21.
+ * Created by 冰诺莫语 on 2015/10/21.
  */
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)

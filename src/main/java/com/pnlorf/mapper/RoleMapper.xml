@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pnlorf.mapper.RoleMapper">
+    <sql id="Base_Column_List">
+        id,
+        state,
+        name,
+        roleKey,
+        description
+    </sql>
+    <select id="selectUserRole" resultType="com.pnlorf.entity.RoleFormMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM role
+        WHERE role.id IN (SELECT roleId from user_role where userId=#{userId})
+    </select>
+</mapper>

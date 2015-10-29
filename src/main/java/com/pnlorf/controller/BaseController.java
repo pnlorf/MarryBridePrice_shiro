@@ -140,7 +140,7 @@ public class BaseController {
                 if (nms.endsWith("[]")) {
                     String[] as = request.getParameterValues(nms);
                     if (as != null && as.length != 0 && as.toString() != "[]") {
-                        String mName = t.getClass().getSimpleName().toString();
+                        String mName = t.getClass().getSimpleName().toUpperCase();
                         if (nms.toUpperCase().startsWith(mName)) {
                             nms = nms.substring(nms.toUpperCase().indexOf(mName) + 1);
                             map.put(nms, as);

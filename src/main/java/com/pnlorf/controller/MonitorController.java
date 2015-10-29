@@ -72,7 +72,14 @@ public class MonitorController extends BaseController {
     public ServerInfoFormMap usage(Model model) throws Exception {
         return SystemInfo.usage(new Sigar());
     }
-
+	/**
+	 * 修改配置　
+	 * @param request
+	 * @param nodeId
+	 * @return
+	 * @throws Exception
+	 */
+    @ResponseBody
     @RequestMapping("modifySer")
     public Map<String, Object> modifySer(String key, String value) throws Exception {
         Map<String, Object> dataMap = new HashMap<String, Object>();

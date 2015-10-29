@@ -25,7 +25,7 @@
     <select id="findUserPage" resultType="com.pnlorf.entity.UserFormMap">
         select
         <include refid="selectId" />
-        from ly_user
+        from user
         where 1 = 1
         <if test="accountName != null and accountName != ''">
             and accountName like '%${accountName}%'

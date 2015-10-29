@@ -4,9 +4,11 @@ import com.pnlorf.annotation.TableSeg;
 import com.pnlorf.util.FormMap;
 
 /**
- * Created by 冰诺莫语 on 2015/10/27.
+ * 实体表
+ * Created by 冰诺莫语 on 2015/10/29.
  */
-@TableSeg(tableName = "log", id = "id")
-public class LogFormMap extends FormMap<String, Object> {
+@TableSeg(tableName = "button", id = "id")
+public class ButtonFormMap extends FormMap<String, Object> {
+
     private static final long serialVersionUID = 1L;
 }

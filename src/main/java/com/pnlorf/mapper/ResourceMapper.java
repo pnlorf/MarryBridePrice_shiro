@@ -16,4 +16,6 @@ public interface ResourceMapper extends BaseMapper {
     void updateSortOrder(List<ResFormMap> maps);
 
     List<ResFormMap> findUserResources(String userId);
+
+    List<ResFormMap> findRoleResources(String roleId);
 }

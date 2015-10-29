@@ -251,7 +251,7 @@ public class Plugin implements InvocationHandler {
 
 			sql = "update " + table.toString() + " set " + ResolverUtil.trimComma(fieldString)
 					+ " " + where;
-		} else if (Configuration.FINDBYFRIST.equals(sqlId)) {
+		} else if (Configuration.FINDBYFIRST.equals(sqlId)) {
 			sql = "select * from " + table.toString() + " where " + formMap.get("key");
 			if(null!=formMap.get("value")&&!"".equals(formMap.get("value").toString()))
 			{
@@ -259,7 +259,7 @@ public class Plugin implements InvocationHandler {
 			}else{
 				throw new Exception(sqlId+" 调用公共方法异常!,传入参数错误！");
 			}
-			
+
 
 		} else if (Configuration.BATCHSAVE.equals(sqlId)) {
 			if (null != formMaps && formMaps.size() > 0) {
@@ -327,7 +327,7 @@ public class Plugin implements InvocationHandler {
 				rs = countStmt.executeQuery();
 			} catch (Exception e) {
 				PagePlugin.logger.error(countSql+" 统计Sql出错,自动转换为普通统计Sql语句!");
-				countSql = "select count(1) from (" + sql+ ") tmp_count"; 
+				countSql = "select count(1) from (" + sql+ ") tmp_count";
 				countStmt = connection.prepareStatement(countSql);
 				rs = countStmt.executeQuery();
 			}
@@ -365,7 +365,7 @@ public class Plugin implements InvocationHandler {
 							return suffixStr(toSql.substring(sun+5));
 						}
 					}
-				}	
+				}
 				int se2 =s1.indexOf("(select");
 					if(se2>-1){
 						String ss2 = s1.substring(se2+7,se2+8);

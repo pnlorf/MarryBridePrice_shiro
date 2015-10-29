@@ -6,4 +6,6 @@ package com.pnlorf.util;
 public interface Constant {
 
     public static final String WOLF_TABLE = "wolf_table";
+
+    public static final String SUCCESS = "success";
 }

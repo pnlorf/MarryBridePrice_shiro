@@ -12,6 +12,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
 import java.util.Properties;
@@ -23,7 +24,7 @@ import java.util.concurrent.ExecutionException;
  * <p>
  * Created by 冰诺莫语 on 2015/10/27.
  */
-@Controller
+@Component
 @Lazy(false)
 public class SpringTaskController {
 
@@ -40,9 +41,9 @@ public class SpringTaskController {
     @Scheduled(cron = "1 * * * * ? ")
     public void task() throws Exception {
         ServerInfoFormMap usage = SystemInfo.usage(new Sigar());
-        String cpuUsage = usage.getStr("cpuUsage"); // CPU使用率
-        String serverUsage = usage.getStr("ramUsage"); // 系统内存使用率
-        String jvmUsage = usage.getStr("jvmUsage");// 计算JVM内存使用率
+        String cpuUsage = usage.get("cpuUsage").toString(); // CPU使用率
+        String serverUsage = usage.get("ramUsage").toString(); // 系统内存使用率
+        String jvmUsage = usage.get("jvmUsage").toString();// 计算JVM内存使用率
         Properties props = PropertiesUtils.getProperties();
         String cpu = props.getProperty("cpu");
         String jvm = props.getProperty("jvm");
