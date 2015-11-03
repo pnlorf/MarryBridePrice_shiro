@@ -28,10 +28,10 @@
     </bean>
 
     <!--国际化的消息资源文件（本系统中主要用于显示/错误消息定制）-->
-    <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+    <!--<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basenames">
             <list>
-                <!--在web环境中一定要定位到classpath，否则默认到当前web应用下找-->
+                &lt;!&ndash;在web环境中一定要定位到classpath，否则默认到当前web应用下找&ndash;&gt;
                 <value>classpath:messages.properties</value>
                 <value>classpath:org/hibernate/validator/ValidationMessages</value>
             </list>
@@ -47,7 +47,7 @@
 
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
         <property name="defaultLocale" value="zh_CN"/>
-    </bean>
+    </bean>-->
 
     <!--支持返回json（避免IE在ajax请求时，返回json出现下载）-->
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">

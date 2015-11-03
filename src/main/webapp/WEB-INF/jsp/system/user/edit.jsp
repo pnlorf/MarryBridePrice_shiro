@@ -22,7 +22,7 @@
 <body>
 	<div class="l_err" style="width: 100%; margin-top: 2px;"></div>
 	<form id="form" name="form" class="form-horizontal" method="post"
-		action="${ctx}/user/editEntity.shtml">
+		action="${ctx}/user/editEntity">
 		<input type="hidden" class="form-control checkacc"
 			value="${user.id}" name="userFormMap.id" id="id">
 		<section class="panel panel-default">
@@ -46,7 +46,7 @@
 			</div>
 			<div class="line line-dashed line-lg pull-in"></div>
 			<div id="selGroup"
-				data-url="/role/selRole.shtml?roleFormMap.userId=${user.id}"></div>
+				data-url="/role/selRole?roleFormMap.userId=${user.id}"></div>
 			<div class="line line-dashed line-lg pull-in"></div>
 			<div class="form-group">
 				<label class="col-sm-3 control-label">是否禁用</label>

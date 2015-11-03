@@ -71,14 +71,14 @@
     <bean id="chainDefinitionSectionMetaSource" class="com.pnlorf.shiro.ChainDefinitionSectionMetaSource">
         <property name="filterChainDefinitions">
             <value>
-	    	/favicon.ico = anon
+	    	    /favicon.ico = anon
                 /error/** = anon
                 /admin_files/** = anon
                 /fonts/** = anon
                 /error.jsp = anon
                 /js/** = anon
                 /layer-v1.9.2/** = anon
-		/notebook/** = anon
+		        /notebook/** = anon
                 /login = anon
                 /denied.jsp = anon
                 /install = anon

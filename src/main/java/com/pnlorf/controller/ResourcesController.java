@@ -229,7 +229,7 @@ public class ResourcesController extends BaseController {
         // 如果是权限，则直接查找 return
         // 如果是用户，则先查找相关角色，查找结果组合成List return
         if (resFormMap.containsKey("roleId")) {
-            resQ = resourceMapper.findRes(resFormMap);
+            resQ = resourceMapper.findRoleResources(resFormMap.get("roleId").toString());
             return resQ;
         } else if (resFormMap.containsKey("userId")) {
             RoleFormMap roleFormMap = new RoleFormMap();

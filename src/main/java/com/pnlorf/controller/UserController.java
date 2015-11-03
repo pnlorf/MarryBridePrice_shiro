@@ -99,20 +99,20 @@ public class UserController extends BaseController {
         if (Common.isNotEmpty(id)) {
             model.addAttribute("user", userMapper.findByFirst("id", id, UserFormMap.class));
         }
-        return Common.BACKGROUND_PATH + "system/user/edit";
+        return Common.BACKGROUND_PATH + "/system/user/edit";
     }
 
     @ResponseBody
     @RequestMapping("editEntity")
     @Transactional(readOnly = false)
     @SystemLog(module = "系统管理", methods = "用户管理-修改用户")
-    public String editEntity(String txtGroupSelect) throws Exception {
+    public String editEntity(String txtGroupsSelect) throws Exception {
         UserFormMap userFormMap = getFormMap(UserFormMap.class);
-        userFormMap.put("txtGroupsSelect", txtGroupSelect);
-        userMapper.editEntity(userFormMap);
+        userFormMap.put("txtGroupsSelect", txtGroupsSelect);
         userMapper.deleteByAttribute("userId", userFormMap.getStr("id"), UserRoleFormMap.class);
-        if (!Common.isEmpty(txtGroupSelect)) {
-            String[] txt = txtGroupSelect.split(",");
+        userMapper.editEntity(userFormMap);
+        if (!Common.isEmpty(txtGroupsSelect)) {
+            String[] txt = txtGroupsSelect.split(",");
             for (String roleId : txt) {
                 UserRoleFormMap userRoleFormMap = new UserRoleFormMap();
                 userRoleFormMap.put("userId", userFormMap.get("id"));

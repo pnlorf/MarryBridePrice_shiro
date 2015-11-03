@@ -59,7 +59,11 @@ $(function() {
 });
 function editAccount() {
 	var cbox = grid.getSelectedCheckbox();
-	if (cbox.length > 1 || cbox == "") {
+	if (cbox == "") {
+		layer.msg("请选择编辑项！！");
+		return;
+	}
+	if (cbox.length > 1) {
 		layer.msg("只能选中一个");
 		return;
 	}

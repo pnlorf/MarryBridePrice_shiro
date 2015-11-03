@@ -27,6 +27,7 @@ function selected() {
 		ids = ids.substring(0, ids.length - 1);
 	}
 	$('#txtGroupsSelect').val(ids);
+	alert($('#txtGroupsSelect').val())
 }
 
 function selectedAll() {
