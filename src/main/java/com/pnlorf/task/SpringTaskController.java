@@ -49,13 +49,13 @@ public class SpringTaskController {
         String jvm = props.getProperty("jvm");
         String ram = props.getProperty("ram");
         String email = props.getProperty("toEmail");
-        // 当系统小号内存大于或等于用户设定的内存时，发送邮件
+        // 当系统消耗内存大于或等于用户设定的内存时，发送邮件
         String cpuBool = "";
         String jvmBool = "";
         String ramBool = "";
         String mark = "<font color='red'>";
         if (Double.parseDouble(cpuUsage) > Double.parseDouble(cpu)) {
-            cpuBool = "style=\"color:red; font-weight=600;\"";
+            cpuBool = "style=\"color:red; font-weight: 600;\"";
             mark += "CPU当前：" + cpuUsage + "%,超出预设值 " + cpu + "%<br>";
         }
 

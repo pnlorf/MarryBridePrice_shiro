@@ -48,7 +48,7 @@ public class LogAopAction {
         String user = null;
         String ip = null;
         try {
-            SecurityUtils.getSubject().getSession().getHost();
+            ip = SecurityUtils.getSubject().getSession().getHost();
         } catch (Exception ee) {
             ip = "无法获取登录用户IP";
         }
@@ -69,7 +69,7 @@ public class LogAopAction {
         logFormMap.put("methods", "<font color=\"red\">执行方法异常:-->" + map.get("methods") + "</font>");
         logFormMap.put("description", "<font color=\"red\">执行方法异常:-->" + e + "</font>");
         logFormMap.put("actionTime", "0");
-        logFormMap.put("userId", ip);
+        logFormMap.put("userIP", ip);
         try {
             logMapper.addEntity(logFormMap);
         } catch (Exception ee) {
