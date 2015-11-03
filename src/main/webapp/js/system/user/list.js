@@ -89,7 +89,7 @@ function delAccount() {
 		var s = CommnUtil.ajax(url, {
 			ids : cbox.join(",")
 		}, "json");
-		if (s == "success") {
+		if (s.message == "success") {
 			layer.msg('删除成功');
 			grid.loadData();
 		} else {

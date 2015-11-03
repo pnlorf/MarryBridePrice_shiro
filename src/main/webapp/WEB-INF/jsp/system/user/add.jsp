@@ -28,7 +28,7 @@ label[class^="btn btn-default"] {
 <body>
 	<div class="l_err" style="width: 100%; margin-top: 2px;"></div>
 	<form id="form" name="form" class="form-horizontal" method="post"
-		action="${ctx}/user/addEntity.shtml">
+		action="${ctx}/user/addEntity">
 		<section class="panel panel-default">
 		<div class="panel-body">
 			<div class="form-group">

@@ -11,7 +11,7 @@ $(function() {
 				type : "post",
 				dataType : "json",//ajaxSubmi带有文件上传的。不需要设置json
 				success : function(data) {
-					if (data == "success") {
+					if (data.message == "success") {
 						layer.confirm('更新成功!是否关闭窗口?', function(index) {
 							parent.grid.loadData();
 							parent.layer.close(parent.pageii);

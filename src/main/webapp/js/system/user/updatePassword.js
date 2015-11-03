@@ -7,7 +7,7 @@ function updatePasswordLayer(){
 	    title:'修改密码',
 	    area: ['550px', '360px'],
 	    skin: 'layui-layer-rim', //加上边框
-	    content: [rootPath+'/user/updatePassword.shtml', 'no']
+	    content: [rootPath+'/user/updatePassword', 'no']
 	});
 	//关闭加载效果
 	layer.close(index);
@@ -37,7 +37,7 @@ $(function() {
 				type : "post",
 				dataType : "json",//ajaxSubmi带有文件上传的。不需要设置json
 				success : function(data) {
-					if (data == "success") {
+					if (data.message == "success") {
 						layer.confirm('修改密码成功!是否关闭窗口?', function(index) {
 							layer.close(index);
 							var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引

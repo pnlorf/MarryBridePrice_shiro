@@ -116,10 +116,10 @@ function sub(){
 			type : "POST",
 			data : $("#from").serializeJson(),
 			//url : rootPath + '/resources/addUserRes.shtml',
-			url : rootPath + '/resources/addRoleRes.shtml',
+			url : rootPath + '/resources/addRoleRes',
 			dataType : 'json',
 			success : function(json) {
-				if (json == "success") {
+				if (json.message == "success") {
 						layer.confirm('分配成功！是否关闭窗口？',{icon: 3,offset: '-100px'}, function(index) {
 				        	parent.layer.close(parent.pageii);
 				        	return false;
@@ -195,7 +195,7 @@ function sub(){
 			"resFormMap.userId" : "${param.userId}",
 			"resFormMap.roleId" : "${param.roleId}"
 		},
-		url : rootPath + '/resources/findRes.shtml',
+		url : rootPath + '/resources/findRes',
 		dataType : 'json',
 		success : function(json) {
 			for (index in json) {

@@ -276,10 +276,10 @@ public class Plugin implements InvocationHandler {
 			for (int i = 0; i < formMaps.size(); i++) {
 				Object object = formMaps.get(i);
 				@SuppressWarnings("unchecked")
-				Map<String, Object> froMmap = (Map<String, Object>) object;
+				Map<String, Object> fromMap = (Map<String, Object>) object;
 				String[] fe = field.split(",");
 				for (String string : fe) {
-					Object v = froMmap.get(string);
+					Object v = fromMap.get(string);
 					if (null != v && !StringUtils.isBlank(v.toString())) {
 						fieldString += string + ",";
 						fieldValues += "'" + v + "',";
@@ -312,6 +312,7 @@ public class Plugin implements InvocationHandler {
 		} else {
 			throw new Exception("调用公共方法异常!");
 		}
+		System.out.println("sql:"+sql);
 		return sql;
 	}
 

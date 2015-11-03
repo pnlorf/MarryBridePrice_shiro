@@ -37,6 +37,7 @@
         <hibernate.validator.version>5.2.2.Final</hibernate.validator.version>
         <commons-collections.version>3.2.1</commons-collections.version>
         <mail.version>1.4.7</mail.version>
+        <poi.version>3.9</poi.version>
 
         <!--plugin setting-->
         <mybatis.generator.generatorConfig.xml>${basedir}/src/test/resources/generatorConfig.xml</mybatis.generator.generatorConfig.xml>
@@ -359,6 +360,19 @@
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
             <version>${mail.version}</version>
+        </dependency>
+
+        <!--poi-->
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi</artifactId>
+            <version>${poi.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>${poi.version}</version>
         </dependency>
 
     </dependencies>

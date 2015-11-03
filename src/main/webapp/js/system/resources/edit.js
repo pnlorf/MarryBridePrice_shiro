@@ -6,7 +6,7 @@ $(function() {
 				type : "post",
 				dataType : "json",
 				success : function(data) {
-					if (data == "success") {
+					if (data.message == "success") {
 						layer.confirm('编辑成功!是否关闭窗口?', function(index) {
 							parent.grid.loadData();
 				        	parent.layer.close(parent.pageii);

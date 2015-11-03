@@ -524,7 +524,7 @@ public class Common {
             if (flag) {
                 TableSeg table = (TableSeg) clazz.getAnnotation(TableSeg.class);
                 // logger.info(" 公共方法被调用,传入参数 ==>> " + froMmap);
-                froMmap.put("ly_table", table.tableName());
+                froMmap.put(Constant.WOLF_TABLE, table.tableName());
             } else {
                 throw new NullPointerException("在" + name + " 没有找到数据库表对应该的注解!");
             }
